@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+Weather Forecast Application
+This is a React.js application that allows users to search for any city worldwide and get real-time weather data along with a 5-day forecast. The app uses two APIs: OpenWeatherMap for weather data and GeoDB Cities for city suggestions.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+Setup Instructions
+Assumptions
+Usage
+Deployment
+API
+License
+Setup Instructions
+Prerequisites
+Before running the application, make sure you have the following installed:
 
-## Available Scripts
+Node.js (v12.x or higher)
+npm (usually comes with Node.js)
+Steps to Set Up Locally
+Clone the repository:
+git clone https://github.com/<username>/<repo-name>.git
+cd <repo-name>
 
-In the project directory, you can run:
+Install dependencies:
 
-### `npm start`
+Inside the project directory, run:
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Create a .env file:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Create a .env file in the root directory of the project and add your API keys for OpenWeatherMap and GeoDB Cities:
 
-### `npm test`
+REACT_APP_WEATHER_API_KEY=your_openweathermap_api_key_here
+REACT_APP_CITIES_API_KEY=your_geodb_api_key_here
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Start the development server:
 
-### `npm run build`
+Run the following command to start the local development server:
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will launch the app at http://localhost:3000/.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Assumptions
+During development, the following assumptions were made:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+City Data Coverage: It is assumed that GeoDB Cities API provides sufficient global coverage for city search functionality, including small and large cities worldwide.
 
-### `npm run eject`
+Weather Data Accuracy: The OpenWeatherMap API provides reliable and accurate weather data for current weather and the 5-day forecast.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+API Rate Limits: We implemented debouncing to minimize API requests and avoid hitting the rate limits of both APIs (GeoDB and OpenWeatherMap).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Environment Variables: API keys are stored in .env files and not directly in the codebase for security purposes.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Usage
+Features:
+Search for a City:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Type a city's name into the search box, and the dropdown will show suggestions based on the GeoDB Cities API.
+Select a city from the dropdown or press "Enter" to search.
+View Current Weather:
 
-## Learn More
+Once a city is selected, the current temperature, weather condition, and an icon will be displayed.
+The temperature is shown in either Celsius or Fahrenheit, based on user selection.
+5-Day Forecast:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Below the current weather, a 5-day forecast will be displayed, showing the min/max temperatures for each day, along with a weather icon.
+Toggle Temperature Unit:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Users can toggle between Celsius and Fahrenheit using a button provided in the UI.
 
-### Code Splitting
+API
+This application uses the following APIs:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+OpenWeatherMap API: For fetching current weather and 5-day forecast data.
+GeoDB Cities API: For fetching city suggestions during user input.
+API Keys:
+You need to create an account on the respective platforms to get API keys.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+OpenWeatherMap: Sign up at openweathermap.org and generate your API key.
+GeoDB Cities: Get your API key from GeoDB Cities on RapidAPI.
+API Usage:
+OpenWeatherMap API: Used to fetch weather data, including current temperature and 5-day forecast.
+GeoDB Cities API: Provides city suggestions based on user input.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
